@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 2019_05_15_091651) do
     t.string "last_name"
     t.string "phone"
     t.string "address"
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
