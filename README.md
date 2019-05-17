@@ -1,5 +1,12 @@
 # README
 
+IMPORTANT!
+THE DEFAULT BRANCH MUST BE "branchMati" WE DID NOT CHANGED THE DEFAULT BRANCH IN GIT
+
+Matias Canepa
+Ignacio Figueroa
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
