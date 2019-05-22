@@ -9,8 +9,7 @@ class Ticket < ApplicationRecord
 
 
   def ticket_on_time_event
-    ev = Event.find(event.id)
-    if ev.start_date < Date.today()
+    if event.start_date < Date.today()
       errors.add(:base, "Can't sell a ticket for a past event")
     end
   end
