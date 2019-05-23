@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'administration/index', to: 'administration#index'
   resources :events
   resources :tickets
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }

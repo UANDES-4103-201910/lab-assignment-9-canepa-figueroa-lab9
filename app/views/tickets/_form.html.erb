@@ -11,6 +11,21 @@
     </div>
   <% end %>
 
+
+
+  <div class="form-field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+
+  </div>
+  <br>
+
+  <div class="form-field">
+    <%= form.label :event_id %>
+    <%= form.select :event_id, Event.all.map{ |p| [p.name, p.id] } %>
+    <%#= form.text_field :event_id%>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

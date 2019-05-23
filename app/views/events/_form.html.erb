@@ -11,6 +11,31 @@
     </div>
   <% end %>
 
+
+  <div class="form-field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+
+  <div class="form-field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+  <br>
+
+  <div class="form-field">
+    <%= form.label :place_id %>
+    <%= form.select :place_id, Place.all.map{ |p| [p.name, p.id] } %>
+  </div>
+  <br>
+
+  <div class="form-field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+  <br>
+
   <div class="actions">
     <%= form.submit %>
   </div>
