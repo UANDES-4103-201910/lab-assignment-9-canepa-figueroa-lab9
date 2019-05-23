@@ -7464,3 +7464,1445 @@ true by adding the following to your application.rb file:
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["ticket_id", 6], ["time", "2019-05-22 15:53:45.213922"], ["paid", "t"], ["created_at", "2019-05-22 15:53:45.215658"], ["updated_at", "2019-05-22 15:53:45.215658"]]
   [1m[35m (104.7ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:41:15 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 36ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:41:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (35.8ms)
+Completed 200 OK in 853ms (Views: 827.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:42:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 16ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:42:22 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 50ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:42:27 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:43:36 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:43:37 -0400
+Started GET "/users/auth/google_oauth2/callback?state=d99b8118d76d0b2711dbc504519c7abddcd065eb2bce141b&code=4/UwEr2hL2dbDFJ02hu0FWWYNJvqWncR3-ytdGfQNblsID0vhG6Z0uQ0Z39pEb5ebxlawoxOEoVS_auKrabRMRwuU&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-05-23 13:43:44 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"d99b8118d76d0b2711dbc504519c7abddcd065eb2bce141b", "code"=>"4/UwEr2hL2dbDFJ02hu0FWWYNJvqWncR3-ytdGfQNblsID0vhG6Z0uQ0Z39pEb5ebxlawoxOEoVS_auKrabRMRwuU", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 218ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-05-23 13:43:45 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 44ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 13:43:59 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"scPyg0/XTHiocUGyZc6Wj8CXXoWTt/dje3RLlGee8htg9WF2RyA1jQ+wqrZwSJZTp0mIf5IpPaoIUKjVKwxqZA==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (2.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 222ms (Views: 37.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 13:44:08 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Tyf5H6OD36b2mt5gV1BFsUfQZ5F7qah9+rvEvFpLAyOeEWrqq3SmU1FbNWRC1kVtIA6xa3o3YrSJnyf9FtmbXA==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2019-05-23 17:44:09.031980"], ["updated_at", "2019-05-23 17:44:09.031980"], ["email", "trifka@gmail.com"], ["encrypted_password", "$2a$11$2u.CWoDh5Tnc3gHxo5x5JO9teAyc6jKO6YLgqL2J6cXr7EO5v9Vee"]]
+  [1m[35m (72.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 17:44:09.111131"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-23 17:44:09.109375"], ["last_sign_in_at", "2019-05-23 17:44:09.109375"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 4]]
+  [1m[35m (69.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 298ms (ActiveRecord: 143.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:44:09 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.5ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (23.0ms)
+Completed 200 OK in 138ms (Views: 42.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:45:43 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:45:46 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 42ms (Views: 35.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:46:10 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:46:12 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 26ms (Views: 22.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:46:14 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 40ms (Views: 32.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:46:16 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:47:50 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 41ms (Views: 34.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:48:41 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 21ms (Views: 19.2ms | ActiveRecord: 0.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 13:49:55 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ySb+lfPh8Ys4INm0eGokMF3trBwRjjws4IHv3WR/3UYYEG1g+xaIfp/hMrBt7CTsOjN65hAQ9uWTpQycKO1FOQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 184ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:49:55 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:49:55 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:50:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 40ms (Views: 37.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:50:24 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/views/layouts/application.html.erb:33: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+          ^~~~~~
+/home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/views/layouts/application.html.erb:35: syntax error, unexpected end-of-input, expecting keyword_end
+          end
+             ^):
+  
+app/views/layouts/application.html.erb:33: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/layouts/application.html.erb:35: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:50:34 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:50:40 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:50:42 -0400
+Started GET "/users/auth/google_oauth2/callback?state=b4bfb3b2f622a500c4ea17318ea5ad8a1e2148ebed1ee08f&code=4/UwGeXxqQX_5SLaMFyY7Lw_dNYqBqYcc4VItYj1m6kQWyll-AEn1mrfGMXTTNcILYYQL5y_q8nOMlIQ20eZoDuBM&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-05-23 13:50:46 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"b4bfb3b2f622a500c4ea17318ea5ad8a1e2148ebed1ee08f", "code"=>"4/UwGeXxqQX_5SLaMFyY7Lw_dNYqBqYcc4VItYj1m6kQWyll-AEn1mrfGMXTTNcILYYQL5y_q8nOMlIQ20eZoDuBM", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 159ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-05-23 13:50:47 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 13:51:04 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q3VUfXAZAHpFBwJ+4i8Gpamk4SVsWb/t3qtr0q2x24c+80pR6KlBVhgGf+i2p5hOuMHeiGACjDHGY/0hkvPOQA==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 157ms (Views: 17.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:51:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-05-23 13:55:32 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rXhEjAjDH3vJJeeR8fDWqKKuWseHR/zxeKPI+O7cI9zr1jqOED3S4N3asEf8FPFmQQw1DDnlDJ9CQc4WHrsM0A==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 265ms (ActiveRecord: 0.4ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rXhEjAjDH3vJJeeR8fDWqKKuWseHR/zxeKPI+O7cI9zr1jqOED3S4N3asEf8FPFmQQw1DDnlDJ9CQc4WHrsM0A==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 132ms (Views: 16.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:55:38 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 13:55:38 -0400
+Started GET "/users/auth/google_oauth2/callback?state=16249f48184068c41e2950841e7629b20d9e942d0d6a631a&code=4%2FUwGYL5-V-sAEpqm1jYz8_zo2ZpA9m09_pl_QZTnhjRDQLaS-ovVFwhofKBvXD4i9WJpXd0lGJLSEfpf1sLNz4uk&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile" for 127.0.0.1 at 2019-05-23 13:56:16 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"16249f48184068c41e2950841e7629b20d9e942d0d6a631a", "code"=>"4/UwGYL5-V-sAEpqm1jYz8_zo2ZpA9m09_pl_QZTnhjRDQLaS-ovVFwhofKBvXD4i9WJpXd0lGJLSEfpf1sLNz4uk", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "infigueroa.k@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "infigueroa.k@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "infigueroa.k@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Redirected to http://localhost:3000/users/sign_up
+Completed 302 Found in 156ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-05-23 13:56:16 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.4ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 13:56:31 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"07Ybyyqcoy3SNSdRZBrdehxs+G62vqU8Xb9j8SeRRhhGMAXnsiziAY80WscwkkORDQnHw7rlluBFd/UCGNNT3w==", "user"=>{"email"=>"lakda@lfkw.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lakda@lfkw.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lakda@lfkw.cl"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.7ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 158ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 13:56:42 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7v1dYATChN3NyUcJLOjhyTixXL0VZvtPGG3Ott8O3Bd7e0NMnHLF8ZDIOp94YH8iKdRjEBk9yJMApVhF4EzJ0A==", "user"=>{"email"=>"lakda@lfkw.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lakda@lfkw.cl"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "lakda@lfkw.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2019-05-23 17:56:42.281299"], ["updated_at", "2019-05-23 17:56:42.281299"], ["email", "lakda@lfkw.cl"], ["encrypted_password", "$2a$11$QrkTURbmyZSwSZBvyjFO4uohR1/2p3lzh4nkF1X6a0eCtPbjD8oM."]]
+  [1m[35m (361.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 17:56:42.648534"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-23 17:56:42.646101"], ["last_sign_in_at", "2019-05-23 17:56:42.646101"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 5]]
+  [1m[35m (72.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 587ms (ActiveRecord: 435.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 13:56:42 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/tickets/8" for 127.0.0.1 at 2019-05-23 13:59:18 -0400
+Processing by TicketsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"TiJnf2H0NOUAMjp0shMbfjGxYmrkuGG1aEZF9Guf5njbpHlT+UR1yV0zR+Lmm4WVINRdx+jjUmlwjtMHVN3zvw==", "id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Destroy (0.5ms)[0m  [1m[31mDELETE FROM "tickets" WHERE "tickets"."id" = ?[0m  [["id", 8]]
+  [1m[35m (169.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/tickets
+Completed 302 Found in 181ms (ActiveRecord: 170.3ms)
+
+
+Started GET "/tickets" for 127.0.0.1 at 2019-05-23 13:59:18 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 35ms (Views: 27.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/tickets/new" for 127.0.0.1 at 2019-05-23 13:59:20 -0400
+Processing by TicketsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/new.html.erb within layouts/application
+  Rendered tickets/_form.html.erb (3.6ms)
+  Rendered tickets/new.html.erb within layouts/application (80.5ms)
+Completed 200 OK in 405ms (Views: 118.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 13:59:22 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lqo/30H+i9heEs9q5MehrTZpPv1qxPV09XJ15ECLehoBch3Tzm+dIwoq8daKFRii8rlMh4O1P7Zrc9p8Sjky7g==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.8ms)
+
+
+  
+NoMethodError (undefined method `start_date' for nil:NilClass):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 14:04:00 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lqo/30H+i9heEs9q5MehrTZpPv1qxPV09XJ15ECLehoBch3Tzm+dIwoq8daKFRii8rlMh4O1P7Zrc9p8Sjky7g==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 1.4ms)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 14:04:10 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lqo/30H+i9heEs9q5MehrTZpPv1qxPV09XJ15ECLehoBch3Tzm+dIwoq8daKFRii8rlMh4O1P7Zrc9p8Sjky7g==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+Started GET "/" for 127.0.0.1 at 2019-05-23 14:04:15 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/tickets/new" for 127.0.0.1 at 2019-05-23 14:04:18 -0400
+Processing by TicketsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/new.html.erb within layouts/application
+  Rendered tickets/_form.html.erb (1.8ms)
+  Rendered tickets/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 33ms (Views: 27.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 14:04:20 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ogrEmoNdnW1s2ozstPlb1xsG4dQZIJYuZaXax7FDJ7k10uaWDMyLljjislDaK+LY39aTrvBRXOz7pHVfu/FvTQ==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `find' for nil:NilClass):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 14:04:26 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ogrEmoNdnW1s2ozstPlb1xsG4dQZIJYuZaXax7FDJ7k10uaWDMyLljjislDaK+LY39aTrvBRXOz7pHVfu/FvTQ==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 404 Not Found in 59ms (ActiveRecord: 2.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Event without an ID):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-05-23 14:18:59 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 211ms (Views: 177.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tickets/new" for 127.0.0.1 at 2019-05-23 14:19:02 -0400
+Processing by TicketsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/new.html.erb within layouts/application
+  Rendered tickets/_form.html.erb (5.5ms)
+  Rendered tickets/new.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 24ms (Views: 20.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/tickets" for 127.0.0.1 at 2019-05-23 14:19:03 -0400
+Processing by TicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7p599RiNBCDhFD/mh65MT+6nLHenRcVcyQkkAUs4vip5Rl/5lxwS27UsAVrpfPVAKndeDU40D55XCIuZQYr23g==", "commit"=>"Create Ticket"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.6ms)
+
+
+  
+NoMethodError (undefined method `start_date' for nil:NilClass):
+  
+app/models/ticket.rb:12:in `ticket_on_time_event'
+app/controllers/tickets_controller.rb:30:in `block in create'
+app/controllers/tickets_controller.rb:29:in `create'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToTickets (20190523182226)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mALTER TABLE "tickets" ADD "admin" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190523182226"]]
+  [1m[35m (98.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (190.7ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "start_date" date, "place_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (81.9ms)[0m  [1m[35mCREATE  INDEX "index_events_on_place_id" ON "events" ("place_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "places"[0m
+  [1m[35m (81.3ms)[0m  [1m[35mCREATE TABLE "places" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+  [1m[35m (81.0ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "price" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "admin" boolean)[0m
+  [1m[35m (81.5ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_tickets"[0m
+  [1m[35m (82.2ms)[0m  [1m[35mCREATE TABLE "user_tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "ticket_id" integer, "time" datetime, "paid" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (82.0ms)[0m  [1m[35mCREATE  INDEX "index_user_tickets_on_ticket_id" ON "user_tickets" ("ticket_id")[0m
+  [1m[35m (82.2ms)[0m  [1m[35mCREATE  INDEX "index_user_tickets_on_user_id" ON "user_tickets" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (407.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "phone" varchar, "address" varchar, "provider" varchar, "uid" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime)[0m
+  [1m[35m (81.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (87.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (106.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (83.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190523182226)[0m
+  [1m[35m (77.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190515091651),
+(20180401230354),
+(20180401225731),
+(20180401225615),
+(20180401225923),
+(20180401225453);
+
+[0m
+  [1m[35m (112.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-23 18:24:44.872198"], ["updated_at", "2019-05-23 18:24:44.872198"]]
+  [1m[35m (78.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "events"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (115.4ms)[0m  [1m[35mCREATE TABLE "events" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "start_date" date, "place_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (454.4ms)[0m  [1m[35mCREATE  INDEX "index_events_on_place_id" ON "events" ("place_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "places"[0m
+  [1m[35m (105.7ms)[0m  [1m[35mCREATE TABLE "places" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "address" varchar, "capacity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "tickets"[0m
+  [1m[35m (105.2ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "description" text, "price" integer, "event_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "admin" boolean)[0m
+  [1m[35m (108.9ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "user_tickets"[0m
+  [1m[35m (129.6ms)[0m  [1m[35mCREATE TABLE "user_tickets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "ticket_id" integer, "time" datetime, "paid" boolean, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE  INDEX "index_user_tickets_on_ticket_id" ON "user_tickets" ("ticket_id")[0m
+  [1m[35m (126.2ms)[0m  [1m[35mCREATE  INDEX "index_user_tickets_on_user_id" ON "user_tickets" ("user_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (134.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "last_name" varchar, "phone" varchar, "address" varchar, "provider" varchar, "uid" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "confirmation_token" varchar, "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar, "failed_attempts" integer DEFAULT 0 NOT NULL, "unlock_token" varchar, "locked_at" datetime)[0m
+  [1m[35m (150.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (137.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (136.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (107.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190523182226)[0m
+  [1m[35m (106.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20190515091651),
+(20180401230354),
+(20180401225731),
+(20180401225615),
+(20180401225923),
+(20180401225453);
+
+[0m
+  [1m[35m (125.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-23 18:24:47.150015"], ["updated_at", "2019-05-23 18:24:47.150015"]]
+  [1m[35m (112.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.2ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-05-23 18:24:47.267613"], ["key", "environment"]]
+  [1m[35m (86.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "fjborie@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "phone", "address", "created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Francisco"], ["last_name", "Borie"], ["phone", "987654321"], ["address", "San Carlos de Apoquindo 2200"], ["created_at", "2019-05-23 18:24:47.542697"], ["updated_at", "2019-05-23 18:24:47.542697"], ["email", "fjborie@miuandes.cl"], ["encrypted_password", "$2a$11$gXxaHuQxkr4On0Hw1ullaeVv.x/QBoZXYZtkbI/9moMVQyarTil/a"]]
+  [1m[35m (115.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dbeckdorf@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "phone", "address", "created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Diego"], ["last_name", "Beckdorf"], ["phone", "987654321"], ["address", "San Carlos de Apoquindo 2200"], ["created_at", "2019-05-23 18:24:47.795531"], ["updated_at", "2019-05-23 18:24:47.795531"], ["email", "dbeckdorf@miuandes.cl"], ["encrypted_password", "$2a$11$hiEsqs1TB1SHVd3LyWaHQ.wWnkrqIJzO/lTM59lXkpOkgB0/yaZ3C"]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mrgarcia1@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "last_name", "phone", "address", "created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Maximiliano"], ["last_name", "Garcia"], ["phone", "987654321"], ["address", "San Carlos de Apoquindo 2200"], ["created_at", "2019-05-23 18:24:48.041988"], ["updated_at", "2019-05-23 18:24:48.041988"], ["email", "mrgarcia1@miuandes.cl"], ["encrypted_password", "$2a$11$X9FQwu14kDi0zP/VffQ5YerkT9nLGPJP9PNbzW9I0GgcsxC04QIr2"]]
+  [1m[35m (100.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlace Create (0.7ms)[0m  [1m[32mINSERT INTO "places" ("name", "address", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Estadio Nacional Julio Martínez Prádanos"], ["address", "Av. Grecia 2001"], ["capacity", 50000], ["created_at", "2019-05-23 18:24:48.200107"], ["updated_at", "2019-05-23 18:24:48.200107"]]
+  [1m[35m (448.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPlace Create (0.7ms)[0m  [1m[32mINSERT INTO "places" ("name", "address", "capacity", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Teatro Nacional Chileno"], ["address", "San Diego 850"], ["capacity", 5000], ["created_at", "2019-05-23 18:24:48.654211"], ["updated_at", "2019-05-23 18:24:48.654211"]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 1], ["start_date", "2019-05-15"]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 1], ["start_date", "2019-05-20"]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 2], ["start_date", "2019-06-25"]]
+  [1m[36mEvent Create (0.2ms)[0m  [1m[32mINSERT INTO "events" ("name", "start_date", "place_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Lollapalooza 2018"], ["start_date", "2019-06-25"], ["place_id", 2], ["created_at", "2019-05-23 18:24:48.780487"], ["updated_at", "2019-05-23 18:24:48.780487"]]
+  [1m[35m (114.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "events" WHERE "events"."place_id" = ? AND "events"."start_date" = ?[0m  [["place_id", 2], ["start_date", "2019-06-30"]]
+  [1m[36mEvent Create (0.7ms)[0m  [1m[32mINSERT INTO "events" ("name", "start_date", "place_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Festival de Viña 2018"], ["start_date", "2019-06-30"], ["place_id", 2], ["created_at", "2019-05-23 18:24:48.900423"], ["updated_at", "2019-05-23 18:24:48.900423"]]
+  [1m[35m (100.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 6000], ["event_id", 1], ["created_at", "2019-05-23 18:24:49.040461"], ["updated_at", "2019-05-23 18:24:49.040461"]]
+  [1m[35m (105.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 6000], ["event_id", 1], ["created_at", "2019-05-23 18:24:49.151538"], ["updated_at", "2019-05-23 18:24:49.151538"]]
+  [1m[35m (125.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 1], ["created_at", "2019-05-23 18:24:49.281707"], ["updated_at", "2019-05-23 18:24:49.281707"]]
+  [1m[35m (108.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 2], ["created_at", "2019-05-23 18:24:49.395113"], ["updated_at", "2019-05-23 18:24:49.395113"]]
+  [1m[35m (135.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.9ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 2], ["created_at", "2019-05-23 18:24:49.536073"], ["updated_at", "2019-05-23 18:24:49.536073"]]
+  [1m[35m (107.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 4000], ["event_id", 2], ["created_at", "2019-05-23 18:24:49.649317"], ["updated_at", "2019-05-23 18:24:49.649317"]]
+  [1m[35m (143.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.2ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 1], ["created_at", "2019-05-23 18:24:49.800875"], ["updated_at", "2019-05-23 18:24:49.800875"]]
+  [1m[35m (139.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "tickets" ("price", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["price", 8000], ["event_id", 2], ["created_at", "2019-05-23 18:24:49.943596"], ["updated_at", "2019-05-23 18:24:49.943596"]]
+  [1m[35m (104.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["time", "2019-05-23 18:24:50.059737"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.073368"], ["updated_at", "2019-05-23 18:24:50.073368"]]
+  [1m[35m (108.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.5ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["time", "2019-05-23 18:24:50.182947"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.184871"], ["updated_at", "2019-05-23 18:24:50.184871"]]
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["time", "2019-05-23 18:24:50.294444"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.297810"], ["updated_at", "2019-05-23 18:24:50.297810"]]
+  [1m[35m (110.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 1], ["time", "2019-05-23 18:24:50.411302"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.414428"], ["updated_at", "2019-05-23 18:24:50.414428"]]
+  [1m[35m (127.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 2], ["time", "2019-05-23 18:24:50.545293"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.551510"], ["updated_at", "2019-05-23 18:24:50.551510"]]
+  [1m[35m (108.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["user_id", 3], ["time", "2019-05-23 18:24:50.664221"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.666356"], ["updated_at", "2019-05-23 18:24:50.666356"]]
+  [1m[35m (121.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["ticket_id", 1], ["time", "2019-05-23 18:24:50.789590"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.793437"], ["updated_at", "2019-05-23 18:24:50.793437"]]
+  [1m[35m (113.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["ticket_id", 2], ["time", "2019-05-23 18:24:50.910653"], ["paid", "t"], ["created_at", "2019-05-23 18:24:50.912692"], ["updated_at", "2019-05-23 18:24:50.912692"]]
+  [1m[35m (453.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["ticket_id", 3], ["time", "2019-05-23 18:24:51.371748"], ["paid", "t"], ["created_at", "2019-05-23 18:24:51.373773"], ["updated_at", "2019-05-23 18:24:51.373773"]]
+  [1m[35m (145.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.2ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 1], ["ticket_id", 4], ["time", "2019-05-23 18:24:51.523343"], ["paid", "t"], ["created_at", "2019-05-23 18:24:51.525321"], ["updated_at", "2019-05-23 18:24:51.525321"]]
+  [1m[35m (115.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 2], ["ticket_id", 5], ["time", "2019-05-23 18:24:51.642822"], ["paid", "t"], ["created_at", "2019-05-23 18:24:51.644810"], ["updated_at", "2019-05-23 18:24:51.644810"]]
+  [1m[35m (162.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 3], ["ticket_id", 6], ["time", "2019-05-23 18:24:51.812806"], ["paid", "t"], ["created_at", "2019-05-23 18:24:51.815131"], ["updated_at", "2019-05-23 18:24:51.815131"]]
+  [1m[35m (107.1ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-05-23 14:42:16 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:42:16 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 664ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `can?' for #<#<Class:0x00007efc10bb0338>:0x00007efc10ba4088>):
+    14: <div>
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <li>
+    17:       <%if can? :manage, Event %>
+    18:         <%=link_to "Events Management", events_path %>
+    19:       <% end %>
+    20:     </li>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2479288157275242172_69810538633060'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:47:35 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (2.3ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (13.4ms)
+Completed 500 Internal Server Error in 313ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `can?' for #<#<Class:0x00007efc10bb0338>:0x00007efc0814ee88>):
+    14: <div>
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <li>
+    17:       <%if can? :manage, Event %>
+    18:         <%=link_to "Events Management", events_path %>
+    19:       <% end %>
+    20:     </li>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2479288157275242172_69810466307920'
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:47:37 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.3ms)
+Completed 500 Internal Server Error in 282ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `can?' for #<#<Class:0x00007efc10bb0338>:0x00007efc11758dc0>):
+    14: <div>
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <li>
+    17:       <%if can? :manage, Event %>
+    18:         <%=link_to "Events Management", events_path %>
+    19:       <% end %>
+    20:     </li>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2479288157275242172_69810544777860'
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:48:52 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (2.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (11.9ms)
+Completed 500 Internal Server Error in 339ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `can?' for #<#<Class:0x00007efc10bb0338>:0x00007efc11358f68>):
+    14: <div>
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <li>
+    17:       <%if can? :manage, Event %>
+    18:         <%=link_to "Events Management", events_path %>
+    19:       <% end %>
+    20:     </li>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2479288157275242172_69810542560080'
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:48:57 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 321ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `can?' for #<#<Class:0x00007efc10bb0338>:0x00007efc04227d90>):
+    14: <div>
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <li>
+    17:       <%if can? :read, Event %>
+    18:         <%=link_to "Events Management", events_path %>
+    19:       <% end %>
+    20:     </li>
+  
+app/views/layouts/application.html.erb:17:in `_app_views_layouts_application_html_erb__2479288157275242172_69810433090700'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:49:14 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 287ms (Views: 261.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 14:51:51 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 32ms (Views: 31.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-05-23 14:51:57 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.5ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.0ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 29ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 14:52:08 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LAZrTWfRWssy6z3y8maoPpVUdOC1/cWmB78ioHblqTauoPJh3v7E8bX26sQnvhg+dws3VdyoZD6q25YYIoJdRQ==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2019-05-23 18:52:08.959214"], ["updated_at", "2019-05-23 18:52:08.959214"], ["email", "trifka@gmail.com"], ["encrypted_password", "$2a$11$AK5DU3RWPELmNC/ZW7TKie.jdsL9X51gWa9pTjEpJrrOZm9FagCQi"]]
+  [1m[35m (66.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 18:52:09.032982"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-23 18:52:09.031156"], ["last_sign_in_at", "2019-05-23 18:52:09.031156"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 4]]
+  [1m[35m (65.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 300ms (ActiveRecord: 133.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 14:52:09 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 1.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `admin?' for #<User:0x00007fdde525b3c0>):
+    15:   <nav id="navbar-app" class="navbar navbar-expand-lg bg-light justify-content-between fixed-top">
+    16:     <ul class = "navbar-nav">
+    17:       <li class="nav-item">
+    18:         <%if can? :read, Event %>
+    19:           <%=link_to "Events Management", events_path %>
+    20:         <% end %>
+    21:       </li>
+  
+app/models/ability.rb:11:in `initialize'
+app/views/layouts/application.html.erb:18:in `_app_views_layouts_application_html_erb___2583658712891115061_70295504071560'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToUser (20190523185406)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190523185406"]]
+  [1m[35m (87.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to RemoveAdminFromTicket (20190523185617)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TEMPORARY TABLE "atickets" ("id" integer NOT NULL PRIMARY KEY, "description" text DEFAULT NULL, "price" integer DEFAULT NULL, "event_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "admin" boolean DEFAULT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "tindex_atickets_on_event_id" ON "atickets" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "atickets" ("id","description","price","event_id","created_at","updated_at","admin")
+                     SELECT "id","description","price","event_id","created_at","updated_at","admin" FROM "tickets"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "tickets"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "tickets" ("id" integer NOT NULL PRIMARY KEY, "description" text DEFAULT NULL, "price" integer DEFAULT NULL, "event_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_tickets_on_event_id" ON "tickets" ("event_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "tickets" ("id","description","price","event_id","created_at","updated_at")
+                     SELECT "id","description","price","event_id","created_at","updated_at" FROM "atickets"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "atickets"[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190523185617"]]
+  [1m[35m (223.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "trifka@gmail.com"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "admin" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 19:01:22.493658"], ["admin", "t"], ["id", 4]]
+  [1m[35m (79.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:01:37 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 58ms (Views: 31.9ms | ActiveRecord: 1.4ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 15:01:46 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"G2N5OMOnwnNTcWvTHOe9n9rEPGdHVi2gx4vSWbpfWA+O5WcUWxeDXw5wFkVIbyN0y6EDyksNHnzfQ0SqhR1NyA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:01:46 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:01:46 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 24ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2019-05-23 15:01:50 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_error_messages.html.erb (0.6ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/registrations/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 37ms (Views: 35.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2019-05-23 15:03:21 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Pzq1uNAPL+cycvWyvA4VDlvQYm6Eze2+2fbcLlAeFCapJGg2mV60AVctfO+u2EzO8NERX5Jyqq9efEzbrToGqw==", "user"=>{"email"=>"macanepa@miuandes.cl", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "macanepa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2019-05-23 19:03:21.966665"], ["updated_at", "2019-05-23 19:03:21.966665"], ["email", "macanepa@miuandes.cl"], ["encrypted_password", "$2a$11$3d28BIlxnrEFszgFX/1ICehgPDK/ID4Cq9urD5Sz.c/V/hjGEQunC"]]
+  [1m[35m (343.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.7ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 19:03:22.317183"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-23 19:03:22.315876"], ["last_sign_in_at", "2019-05-23 19:03:22.315876"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 5]]
+  [1m[35m (68.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 568ms (ActiveRecord: 413.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:03:22 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 35ms (Views: 27.8ms | ActiveRecord: 0.5ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 15:03:29 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pgDq4wGKeX6QnijM5bJ21yZR21WScOdLMpNIaY9gnvxIkcmzRuCy1wBSZoxVvxRu/Xmd4Kbq3nvWXZpC5N4Bhw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:03:29 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:03:29 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 28ms (Views: 27.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:03:37 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:03:37 -0400
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:03:48 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vsr9FVAHhrGK/HN2lZhvrm0v7vhQXTaIJtPDjWBstp/liKwkeOOTrB+udtVTdB+iI/rXcv3DJUvBvPb85q/qtQ==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 135ms (ActiveRecord: 0.2ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vsr9FVAHhrGK/HN2lZhvrm0v7vhQXTaIJtPDjWBstp/liKwkeOOTrB+udtVTdB+iI/rXcv3DJUvBvPb85q/qtQ==", "user"=>{"email"=>"trifka@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.8ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 151ms (Views: 24.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:03:54 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:03:54 -0400
+Started GET "/users/auth/google_oauth2/callback?state=dda78acdab7c49f41649708117b76b953a3c493c7d1bb920&code=4/UwHgnDM3yZx31mtnI7aOc8XXzwPgDWQ6yJ4lV0Csm2U2byhg-39UcNpT9JT8YS954HozdFKIhG4sDxBav4-d8hg&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-05-23 15:03:58 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"dda78acdab7c49f41649708117b76b953a3c493c7d1bb920", "code"=>"4/UwHgnDM3yZx31mtnI7aOc8XXzwPgDWQ6yJ4lV0Csm2U2byhg-39UcNpT9JT8YS954HozdFKIhG4sDxBav4-d8hg", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ijfigueroa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?, ?)[0m  [["name", "IGNACIO JOSE FIGUEROA KOCKSCH"], ["created_at", "2019-05-23 19:03:59.600558"], ["updated_at", "2019-05-23 19:03:59.600558"], ["email", "ijfigueroa@miuandes.cl"], ["encrypted_password", "$2a$11$zRBZjrDUQv44wO/rAFK2wO.tlLde0yPFzjsdTyXJVhHq5Tz4ie3bi"]]
+  [1m[35m (71.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2019-05-23 19:03:59.677841"], ["sign_in_count", 1], ["current_sign_in_at", "2019-05-23 19:03:59.676507"], ["last_sign_in_at", "2019-05-23 19:03:59.676507"], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "127.0.0.1"], ["id", 6]]
+  [1m[35m (68.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 300ms (ActiveRecord: 141.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:03:59 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 39ms (Views: 31.5ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 15:04:03 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HHF2R8Lijm2SbDpSJIp38wopVnDx4R6eauWKM4VR4KDJVyNs3CxsQLBmeu5fFKvhFXsO1Kah8kizWAOC6AaCmA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:04:03 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:04:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:04:05 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:04:05 -0400
+Started GET "/users/auth/google_oauth2/callback?state=9260d2327f62e728aa7cbe4c81c7532f4d32c742205bb4b0&code=4%2FUwE1Rgiy_CnRWw7TbC_bDOn7RiwEnl-i0QbFP7Snvu7DuCUZUfxbE21W_i-oAqvzhDdnsej-9uZDPLgbO0XjYUs&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile" for 127.0.0.1 at 2019-05-23 15:04:10 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"9260d2327f62e728aa7cbe4c81c7532f4d32c742205bb4b0", "code"=>"4/UwE1Rgiy_CnRWw7TbC_bDOn7RiwEnl-i0QbFP7Snvu7DuCUZUfxbE21W_i-oAqvzhDdnsej-9uZDPLgbO0XjYUs", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (2.1ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2019-05-23 19:04:11.533016"], ["sign_in_count", 2], ["updated_at", "2019-05-23 19:04:11.535116"], ["id", 4]]
+  [1m[35m (68.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms (ActiveRecord: 71.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:04:11 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 23ms (Views: 20.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 15:04:16 -0400
+Processing by EventsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 36ms (Views: 30.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:08:42 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 30ms (Views: 27.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:16:46 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"tickets"}, missing required keys: [:id]):
+    21:       </li>
+    22:       <li class="nav-item">
+    23:         <%if can? :manage, Ticket %>
+    24:           <%=link_to "Ticket management", ticket_path %>
+    25:         <% end %>
+    26:       </li>
+    27:     </ul>
+  
+app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb___2583658712891115061_70295501723640'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:17:37 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"tickets"}, missing required keys: [:id]):
+    21:       </li>
+    22:       <li class="nav-item">
+    23:         <%if can? :manage, Ticket %>
+    24:           <%=link_to "Ticket management", ticket_path %>
+    25:         <% end %>
+    26:       </li>
+    27:     </ul>
+  
+app/views/layouts/application.html.erb:24:in `_app_views_layouts_application_html_erb___2583658712891115061_70295327183340'
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:18:08 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 15:18:12 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Q/VCn2GQ7kWshXcHjgiTJ9sxgg8maxZ9MdY5RTDHKIfpYAq++0d8348btZLlYa1Sjw+aRnO6OHSFs/0FghEwKg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:18:12 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:18:12 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 27ms (Views: 25.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:18:15 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9n3E95tDQdVI/Ov83QDeky53+4bdaAeIaj8d0vVbahFIS9MVmsiuIdqq/44uUmg5Xni3yrp036Xlqywa2lAcBA==", "user"=>{"email"=>"macanepa@miuandes.cl", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "macanepa@miuandes.cl"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2019-05-23 19:18:15.449762"], ["sign_in_count", 2], ["updated_at", "2019-05-23 19:18:15.450295"], ["id", 5]]
+  [1m[35m (68.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 213ms (ActiveRecord: 69.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:18:15 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 41ms (Views: 34.1ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2019-05-23 15:18:20 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"kfR3keN7CorIGCEUh83DJYMLSkJcJxoZ0QMQcuI7PQHfpsoZbeVCV/23PEY3rHNVs9LuMkRkKZSyluNLOSM6xA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:18:20 -0400
+Processing by TicketsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2019-05-23 15:18:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/shared/_links.html.erb (0.9ms)
+  Rendered /var/lib/gems/2.5.0/gems/devise-4.6.2/app/views/devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:18:23 -0400
+Started GET "/users/auth/google_oauth2" for 127.0.0.1 at 2019-05-23 15:18:23 -0400
+Started GET "/users/auth/google_oauth2/callback?state=671eeab3839eca141b5d99fb4be6804fc45f9aaa74e024a9&code=4%2FUwHrqZPJRNgjF0-rGqtg-utREw9ZUwQVkW0aB0Xpbx450UTyio6ymSMMLFZg0XJqmDB9nJJyWDlC-Qr2Ed7QGgc&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile" for 127.0.0.1 at 2019-05-23 15:18:29 -0400
+Processing by CallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"671eeab3839eca141b5d99fb4be6804fc45f9aaa74e024a9", "code"=>"4/UwHrqZPJRNgjF0-rGqtg-utREw9ZUwQVkW0aB0Xpbx450UTyio6ymSMMLFZg0XJqmDB9nJJyWDlC-Qr2Ed7QGgc", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "trifka@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2019-05-23 19:18:30.563105"], ["last_sign_in_at", "2019-05-23 19:04:11.533016"], ["sign_in_count", 3], ["updated_at", "2019-05-23 19:18:30.564478"], ["id", 4]]
+  [1m[35m (371.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 384ms (ActiveRecord: 373.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 15:18:30 -0400
+Processing by TicketsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  Rendered tickets/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 37ms (Views: 29.8ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ?[0m  [["LIMIT", 11]]

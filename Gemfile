@@ -21,8 +21,11 @@ gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'therubyracer'
 gem 'jquery-rails'
+gem 'cancancan'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'debase'
+gem 'ruby-debug-ide'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
