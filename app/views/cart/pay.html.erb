@@ -1,5 +1,13 @@
 <div class="container">
   <h2>Successfully paid</h2>
+  <p>Date: <%=Time.now %></p>
+
+  <% if(not current_user.name.nil?) %>
+    <p>buyer: <%=current_user.name %></p>
+  <%else %>
+  <p>buyer: <%=current_user.email %></p>
+  <%end %>
+
   <table class="table">
     <thead>
     <tr>
