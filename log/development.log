@@ -20031,3 +20031,1662 @@ Processing by CartController#index as HTML
 Completed 200 OK in 51ms (Views: 46.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/events" for 127.0.0.1 at 2019-05-23 21:55:44 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 59ms (Views: 54.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 21:55:45 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (16.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 70ms (Views: 48.2ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/tickets/1" for 127.0.0.1 at 2019-05-23 21:55:46 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 47ms (Views: 40.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 21:55:47 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"1", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.8ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 1], ["time", "2019-05-24 01:55:48.022428"], ["paid", "f"], ["created_at", "2019-05-24 01:55:48.029348"], ["updated_at", "2019-05-24 01:55:48.029348"]]
+  [1m[35m (159.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 191ms (ActiveRecord: 161.9ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 21:55:48 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 37ms (Views: 31.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 21:55:51 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"NPlwRLXbwRTdKKDBhWJUJrwSi2RcoqZ4TwjRqJlIuzZ/Gm/WhrCTm9SrGj3o4q9L5Rb5MUDwkE+Lbiak6lmxgw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.9ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 01:55:51.675137"], ["id", 19]]
+  [1m[35m (168.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 170.4ms)
+
+
+  
+NoMethodError (undefined method `price' for #<UserTicket:0x000055cfb9397c98>):
+  
+app/controllers/cart_controller.rb:12:in `block in pay'
+app/controllers/cart_controller.rb:10:in `pay'
+Started GET "/" for 127.0.0.1 at 2019-05-23 22:00:19 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 75ms (Views: 70.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:00:22 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 60ms (Views: 51.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:00:25 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 54ms (Views: 46.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:00:25 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 42ms (Views: 35.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:00:34 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"JwdsCJh3RO0JRzgiwKzZ59X/y7q33CyManBVrFxOj11s5HOaqxwWYgDEgt6tLCKKjPu576uOGruuFqKgL1+F6A=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 38ms (Views: 30.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:00:46 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 35ms (Views: 33.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:00:47 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (14.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 57ms (Views: 39.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:00:50 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 49ms (Views: 44.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:00:55 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 37.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tickets/3" for 127.0.0.1 at 2019-05-23 22:00:56 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTicket Load (0.7ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 55ms (Views: 47.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:00:58 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"3", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 3], ["time", "2019-05-24 02:00:58.544800"], ["paid", "f"], ["created_at", "2019-05-24 02:00:58.550136"], ["updated_at", "2019-05-24 02:00:58.550136"]]
+  [1m[35m (165.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 191ms (ActiveRecord: 167.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:00:58 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 42ms (Views: 34.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:01:02 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"XJE6E7yPz5m3FPVIJtHX2MiWx4dnIGE6OH3nMvTBwpIXciWBj+SdFr6XT7RLUSy1kZK10ntyVw38GxA+h9DIJw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.4ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:01:02.257653"], ["id", 20]]
+  [1m[35m (1194.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1264ms (Views: 49.5ms | ActiveRecord: 1196.9ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:01:24 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 55ms (Views: 50.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:01:30 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 55ms (Views: 30.2ms | ActiveRecord: 16.9ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:01:47 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"0vY93qW3HlM+vY0DkpKqGZimJGzHYfg2HeRAs9icq3qZFSJMltxM3Dc+N///ElF0waJWOdszzgHZgre/q42hzw=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 66ms (Views: 56.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:05:15 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (32.9ms)
+Completed 200 OK in 56ms (Views: 50.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:05:17 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 59ms (Views: 39.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:05:19 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 33ms (Views: 25.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:05:20 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"/SAs/g4sCyTg4IXdv31xaYPSeQrXDuo9ZUPL/jZ949m2wzNsPUdZq+ljPyHS/YoE2tYLX8tc3AqhJTzyRWzpbA=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT  "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ? LIMIT ?[0m  [["user_id", 6], ["paid", "f"], ["LIMIT", 11]]
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.3ms)
+
+
+  
+  [1m[36mCACHE UserTicket Load (0.0ms)[0m  [1m[34mSELECT  "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ? LIMIT ?[0m  [["user_id", 6], ["paid", "f"], ["LIMIT", 11]]
+NoMethodError (undefined method `lenght' for #<ActiveRecord::Relation []>
+Did you mean?  length):
+  
+app/controllers/cart_controller.rb:9:in `pay'
+DEPRECATION WARNING: Leaving `ActiveRecord::ConnectionAdapters::SQLite3Adapter.represent_boolean_as_integer`
+set to false is deprecated. SQLite databases have used 't' and 'f' to serialize
+boolean values and must have old data converted to 1 and 0 (its native boolean
+serialization) before setting this flag to true. Conversion can be accomplished
+by setting up a rake task which runs
+
+  ExampleModel.where("boolean_column = 't'").update_all(boolean_column: 1)
+  ExampleModel.where("boolean_column = 'f'").update_all(boolean_column: 0)
+
+for all models and all boolean columns, after which the flag must be set to
+true by adding the following to your application.rb file:
+
+  Rails.application.config.active_record.sqlite3.represent_boolean_as_integer = true
+ (called from <top (required)> at /home/ignacio/lab-assignment-9-canepa-figueroa-lab9/app/models/application_record.rb:1)
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:07:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 214ms (Views: 180.7ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:07:50 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"+np36/K2Bq5cA3CyuKY2gp5G1/3bPZL3p0vsh33RcK2xmWh5wd1UIVWAyk7VJs3vx0KlqMdvpMBjLRuLDsB6GA=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 39ms (Views: 31.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-23 22:12:08 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 61ms (Views: 56.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:12:10 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (17.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 56ms (Views: 42.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tickets/7" for 127.0.0.1 at 2019-05-23 22:12:12 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTicket Load (0.5ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (24.2ms)
+Completed 200 OK in 58ms (Views: 50.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:12:13 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"7", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 7], ["time", "2019-05-24 02:12:13.381191"], ["paid", "f"], ["created_at", "2019-05-24 02:12:13.386174"], ["updated_at", "2019-05-24 02:12:13.386174"]]
+  [1m[35m (156.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 182ms (ActiveRecord: 159.0ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:12:13 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 40ms (Views: 31.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:12:16 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"D73hUnMHUvHRut6/oY1gjrZT4OHpevJrrN0AlYyONsxEXv7AQGwAftg5ZEPMDZvj71eStPUoxFxou/eZ/588eQ=="}
+Redirected to http://localhost:3000/events
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:12:16 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 26ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:12:20 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (6.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 42.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/tickets/3" for 127.0.0.1 at 2019-05-23 22:12:24 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 50ms (Views: 44.4ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:12:25 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"3", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.9ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 3], ["time", "2019-05-24 02:12:25.118693"], ["paid", "f"], ["created_at", "2019-05-24 02:12:25.126016"], ["updated_at", "2019-05-24 02:12:25.126016"]]
+  [1m[35m (67.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 84ms (ActiveRecord: 69.2ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:12:25 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 47ms (Views: 37.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:12:27 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 42ms (Views: 37.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:12:29 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"T36Dc7BVZkRX9GoUo340T9J23W/5pMmkLyB6nkRDrsAEnZzhgz40y1530OjO/s8ii3KvOuX2/5PrRo2SN1KkdQ=="}
+Redirected to http://localhost:3000/events
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:12:29 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 26ms (Views: 25.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:13:22 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (38.6ms)
+Completed 200 OK in 71ms (Views: 66.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:13:24 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 77ms (Views: 69.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:13:27 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"zaoXxHOzq7okU7QTC4x/cBb4/02xQRpBV7HoKDc8McOGSQhWQNj5NS3QDu9mDIQdT/yNGK0TLHaT1x8kRC07dg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.3ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:13:27.052883"], ["id", 21]]
+  [1m[35m (855.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.8ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:13:27.923325"], ["id", 22]]
+  [1m[35m (965.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 1905ms (Views: 44.4ms | ActiveRecord: 1825.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:15:56 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 67ms (Views: 61.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:15:58 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (11.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 43ms (Views: 32.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tickets/1" for 127.0.0.1 at 2019-05-23 22:15:58 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 54ms (Views: 44.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:21:18 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 48ms (Views: 41.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:21:19 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 27.1ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mTicket Load (1.0ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:28:05 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (37.1ms)
+Completed 200 OK in 62ms (Views: 57.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2019-05-23 22:28:06 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 72ms (Views: 62.5ms | ActiveRecord: 1.8ms)
+
+
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT ?[0m  [["LIMIT", 11]]
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:43:36 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (32.3ms)
+Completed 200 OK in 59ms (Views: 54.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:43:37 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 44ms (Views: 33.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:43:39 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 36ms (Views: 33.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:43:40 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (13.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 63ms (Views: 38.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/tickets/2" for 127.0.0.1 at 2019-05-23 22:43:41 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 53ms (Views: 45.0ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:43:42 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"2", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.6ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 2], ["time", "2019-05-24 02:43:42.445242"], ["paid", "f"], ["created_at", "2019-05-24 02:43:42.455775"], ["updated_at", "2019-05-24 02:43:42.455775"]]
+  [1m[35m (158.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 184ms (ActiveRecord: 159.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:43:42 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 45ms (Views: 37.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:43:47 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2019-05-23 22:43:49 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mEvent Load (1.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (14.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 46.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/tickets/6" for 127.0.0.1 at 2019-05-23 22:43:50 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 43ms (Views: 36.4ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:43:51 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"6", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (1.0ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 6], ["time", "2019-05-24 02:43:51.597139"], ["paid", "f"], ["created_at", "2019-05-24 02:43:51.602713"], ["updated_at", "2019-05-24 02:43:51.602713"]]
+  [1m[35m (165.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 179ms (ActiveRecord: 167.3ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:43:51 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 36ms (Views: 29.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 22:43:54 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 33ms (Views: 28.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:43:56 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"6D2SLFZ5k4iIyemtbi2OSvY8oEvPlP7SJ3xnUldSxuOj3o2+ZRLBB4FKU1EDrXUnrzjSHtPGyOXjGpBeJEPMVg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.4ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:43:56.664409"], ["id", 23]]
+  [1m[35m (165.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 187ms (ActiveRecord: 167.4ms)
+
+
+  
+NoMethodError (undefined method `<<' for nil:NilClass):
+  
+app/controllers/cart_controller.rb:16:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/" for 127.0.0.1 at 2019-05-23 22:46:00 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (30.6ms)
+Completed 200 OK in 56ms (Views: 51.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:48:46 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (11.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 36.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/tickets/1" for 127.0.0.1 at 2019-05-23 22:48:47 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.5ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 51ms (Views: 42.0ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:48:48 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"1", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 1], ["time", "2019-05-24 02:48:48.320539"], ["paid", "f"], ["created_at", "2019-05-24 02:48:48.327706"], ["updated_at", "2019-05-24 02:48:48.327706"]]
+  [1m[35m (157.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 193ms (ActiveRecord: 160.9ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:48:48 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 43ms (Views: 36.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:48:54 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"ENleXzwVzDsuFZ6fXEKNhI4s7t2Zu56xVXqs6CnFnKxbOkHND36etCeWJGMxwnbp1yiciIXpqIaRHFvkWtSWGQ=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.6ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:48:54.246966"], ["id", 24]]
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 121ms (ActiveRecord: 81.6ms)
+
+
+  
+NoMethodError (undefined method `event_id' for #<UserTicket:0x00007f6df5996118>):
+  
+app/controllers/cart_controller.rb:17:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/" for 127.0.0.1 at 2019-05-23 22:58:42 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (31.5ms)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 22:58:44 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (10.9ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 37.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tickets/1" for 127.0.0.1 at 2019-05-23 22:58:46 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 36ms (Views: 32.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:58:47 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"1", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.4ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 1], ["time", "2019-05-24 02:58:47.704907"], ["paid", "f"], ["created_at", "2019-05-24 02:58:47.711354"], ["updated_at", "2019-05-24 02:58:47.711354"]]
+  [1m[35m (174.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 207ms (ActiveRecord: 176.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:58:47 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Ticket Load (0.0ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 35ms (Views: 29.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 22:58:55 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 40ms (Views: 37.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2019-05-23 22:58:56 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 38.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/tickets/6" for 127.0.0.1 at 2019-05-23 22:58:59 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 27ms (Views: 24.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 22:59:00 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"6", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.7ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 6], ["time", "2019-05-24 02:59:00.137998"], ["paid", "f"], ["created_at", "2019-05-24 02:59:00.143384"], ["updated_at", "2019-05-24 02:59:00.143384"]]
+  [1m[35m (73.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 90ms (ActiveRecord: 74.4ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 22:59:00 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Ticket Load (0.0ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 43ms (Views: 36.3ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 22:59:03 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"dgrPwUp/9bqE5D40R+vh88tOsbpyilO7ITiYn8A4Xss96dBTeRSnNY1nhMgqaxqekkrD727YZYzlXm+TsylUfg=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.3ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 02:59:03.607791"], ["id", 25]]
+  [1m[35m (176.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 202ms (ActiveRecord: 178.3ms)
+
+
+  
+NoMethodError (undefined method `event' for #<UserTicket:0x00007f6dfc4baef8>):
+  
+app/controllers/cart_controller.rb:17:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/cart/" for 127.0.0.1 at 2019-05-23 23:12:34 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 85ms (Views: 47.8ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:12:37 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"5jHMCNU9mZj7VeVDfaWGMwHt/hAh8EmLThQBim8g3k6t0tOa5lbLF/LWX78QJX1eWOmMRT2if7yKcvaGHDHU+w=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'paid' for Ticket.):
+  
+app/controllers/cart_controller.rb:13:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:13:12 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 94ms (Views: 64.8ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:13:14 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"FCtXMS0+6cnQnO9oDD+/GLVd08xJKoJ45rK4kT19KDlfyEijHlW7RtkfVZRhv0R17FmhmVV4tE8i1E+dTmwijA=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.5ms)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'paid' for Ticket.):
+  
+app/controllers/cart_controller.rb:14:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:13:29 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 86ms (Views: 57.0ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:13:31 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"SlLchWDU+wh20mpTNf5/MPb0XQrUGlFE3RwBCEloUMIBscMXU7+ph39R0K9YfoRdr/AvX8hIZ3MZevYEOnladw=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.2ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:13:31.505154"], ["id", 26]]
+  [1m[35m (177.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 358ms (ActiveRecord: 178.1ms)
+
+
+  
+NameError (undefined local variable or method `item' for #<CartController:0x00007f6dfc7d72f8>):
+  
+app/controllers/cart_controller.rb:15:in `block in pay'
+app/controllers/cart_controller.rb:12:in `pay'
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:13:47 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 90ms (Views: 56.3ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:13:51 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"l0X2S+RpGr2QcjVjhNw7p5pEonoTAebzFJ5E0z15kaXcpunZ1wJIMpnxj5/pXMDKw0DQLw9T0MTQ+LPfTmibEA=="}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.2ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:13:51.419907"], ["id", 27]]
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 171ms (Views: 53.7ms | ActiveRecord: 107.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:14:23 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (39.6ms)
+Completed 200 OK in 74ms (Views: 67.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:14:25 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 47ms (Views: 38.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:14:27 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 62ms (Views: 55.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2019-05-23 23:14:28 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (15.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 41.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/tickets/4" for 127.0.0.1 at 2019-05-23 23:14:31 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 38ms (Views: 34.3ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 23:14:32 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"user_id"=>"6", "ticket_id"=>"4", "commit"=>"Add to cart"}
+Unpermitted parameter: :commit
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.3ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 4], ["time", "2019-05-24 03:14:32.103183"], ["paid", "f"], ["created_at", "2019-05-24 03:14:32.111135"], ["updated_at", "2019-05-24 03:14:32.111135"]]
+  [1m[35m (151.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 178ms (ActiveRecord: 152.7ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:14:32 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 39ms (Views: 31.7ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:14:36 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"LT545hiHMux0n+Z09mvda6u4U/oEXa2JCrbxxQDnU9Rm3Wd0K+xgY30cXIib6yYG8rwhrxgPm77O0AbJc/ZZYQ=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.4ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:14:36.102064"], ["id", 28]]
+  [1m[35m (1179.2ms)[0m  [1m[36mcommit transaction[0m
+  Rendering cart/pay.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered cart/pay.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 1246ms (Views: 49.0ms | ActiveRecord: 1181.1ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:15:43 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:15:45 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"j0mZAzgYdf5LuhdwpyMGkuN0wZvGT2xq7AJkogLP33/EqoaRC3MncUI5rYzKo/3/unCzztodWl0oZJOucd7Vyg=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendering cart/pay.html.erb within layouts/application
+  Rendered cart/pay.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 43ms (Views: 33.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:15:49 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 43ms (Views: 37.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:17:12 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 54ms (Views: 27.3ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:17:15 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"b6hl6lX8p5zhdvxn7qU8tvrTUh5lrbwehe65zD3KaEskS3p4Zpf1E+j1RpuDJcfbo9cgS3n/iilBiE7ATtti/g=="}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.5ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+Redirected to http://localhost:3000/events
+Completed 302 Found in 9ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:17:15 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 44ms (Views: 39.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/tickets" for 127.0.0.1 at 2019-05-23 23:22:51 -0400
+Processing by TicketsController#index as HTML
+  Rendering tickets/index.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets"[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered tickets/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 76ms (Views: 70.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:22:57 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 31ms (Views: 27.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/2" for 127.0.0.1 at 2019-05-23 23:22:59 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 2]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (6.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 44ms (Views: 36.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:23:01 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 23:23:01 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (13.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 43.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/tickets/3" for 127.0.0.1 at 2019-05-23 23:23:03 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (13.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 49ms (Views: 45.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 23:23:04 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vzhLSAtftLhwIZbtc72e99CuWnkcaDAUw9uwQ8ZOluxC1hzAz0Z3sS9gzpi0pcx5L+R+IRPvMtlEkZbu+ZmuFQ==", "user_ticket"=>{"ticket_id"=>"3"}, "commit"=>"Add to cart"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (0.2ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 3], ["time", "2019-05-24 03:23:04.312985"], ["paid", "f"], ["created_at", "2019-05-24 03:23:04.316951"], ["updated_at", "2019-05-24 03:23:04.316951"]]
+  [1m[35m (76.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 99ms (ActiveRecord: 78.1ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:23:04 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 45ms (Views: 35.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:23:06 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 34ms (Views: 30.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:23:09 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.4ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 48ms (Views: 40.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:23:11 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"l3ao+DALM9L4Nh+LhyNlwRJY4I8TjY6FwibW56vG6AfclbdqA2BhXfG1pXfqo56sS1yS2g/fuLIGQCHr2Nfisg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mCACHE UserTicket Load (0.1ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.5ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:23:11.957415"], ["id", 29]]
+  [1m[35m (71.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering cart/pay.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/pay.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 138ms (Views: 45.7ms | ActiveRecord: 73.9ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:28:35 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 47ms (Views: 43.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/cart/index" for 127.0.0.1 at 2019-05-23 23:28:40 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  Rendered cart/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 34ms (Views: 28.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:28:42 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"1WBo8EfyZvPT4fd2AfzHZhpJ6sQ65l8ZRUo1C7nEy6Seg3didJk0fNpiTYpsfDwLQ02YkSa0aS6BLMIHytXBEQ=="}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+Redirected to http://localhost:3000/events
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:28:42 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 38ms (Views: 34.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 23:28:44 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.4ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (8.2ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/tickets/3" for 127.0.0.1 at 2019-05-23 23:28:45 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTicket Load (0.6ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (9.3ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 40.5ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 23:28:46 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cCh9OnAha0dfebUhj/OKFi1bSpMlaVowYeUzlM/6T62NxiqytDioTgA47VRI69iY0hFuyyruWP3mrxU58C13VA==", "user_ticket"=>{"ticket_id"=>"3"}, "commit"=>"Add to cart"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (1.1ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 3], ["time", "2019-05-24 03:28:46.619308"], ["paid", "f"], ["created_at", "2019-05-24 03:28:46.627363"], ["updated_at", "2019-05-24 03:28:46.627363"]]
+  [1m[35m (78.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 100ms (ActiveRecord: 80.8ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:28:46 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 32ms (Views: 28.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:28:48 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"aSHnizSCcOdFWuxCYQhT/IR0nuyv3Q28bzN0MBV4WBciwvgZB+kiaEzZVr4MiKiR3XDsubOPO4urVYM8ZmlSog=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mCACHE UserTicket Load (0.0ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.3ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:28:48.018316"], ["id", 30]]
+  [1m[35m (88.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering cart/pay.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/pay.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 159ms (Views: 54.9ms | ActiveRecord: 90.2ms)
+
+
+Started GET "/cart/pay" for 127.0.0.1 at 2019-05-23 23:28:53 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/cart/pay"):
+  
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:29:47 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"aSHnizSCcOdFWuxCYQhT/IR0nuyv3Q28bzN0MBV4WBciwvgZB+kiaEzZVr4MiKiR3XDsubOPO4urVYM8ZmlSog=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.3ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+Redirected to http://localhost:3000/events
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-23 23:29:47 -0400
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 42ms (Views: 38.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/events/1" for 127.0.0.1 at 2019-05-23 23:29:50 -0400
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering events/show.html.erb within layouts/application
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT "tickets".* FROM "tickets" WHERE "tickets"."event_id" = ?[0m  [["event_id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE Event Load (0.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/show.html.erb within layouts/application (6.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 34.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/tickets/7" for 127.0.0.1 at 2019-05-23 23:29:51 -0400
+Processing by TicketsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mTicket Load (0.3ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  Rendering tickets/show.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPlace Load (0.2ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered tickets/show.html.erb within layouts/application (8.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+Completed 200 OK in 47ms (Views: 41.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/user_tickets" for 127.0.0.1 at 2019-05-23 23:29:52 -0400
+Processing by UserTicketsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"4b4njh0r25ZiNnUUKBvh3cF5ZSfndq6rUQ9RdWxCN+4cUHAG2TIYnz13LWHvA7NTPjNBf+jxrGbWRXfYU5UPFw==", "user_ticket"=>{"ticket_id"=>"7"}, "commit"=>"Add to cart"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserTicket Create (1.5ms)[0m  [1m[32mINSERT INTO "user_tickets" ("user_id", "ticket_id", "time", "paid", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["user_id", 6], ["ticket_id", 7], ["time", "2019-05-24 03:29:52.591719"], ["paid", "f"], ["created_at", "2019-05-24 03:29:52.596712"], ["updated_at", "2019-05-24 03:29:52.596712"]]
+  [1m[35m (167.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/cart
+Completed 302 Found in 185ms (ActiveRecord: 169.8ms)
+
+
+Started GET "/cart" for 127.0.0.1 at 2019-05-23 23:29:52 -0400
+Processing by CartController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering cart/index.html.erb within layouts/application
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mTicket Load (0.2ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 43ms (Views: 35.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/cart/pay" for 127.0.0.1 at 2019-05-23 23:29:54 -0400
+Processing by CartController#pay as HTML
+  Parameters: {"authenticity_token"=>"UivWsmcFTT+4q0WHbQ97R7PIgcpHJ0aep4MP8Os9IsMZyMkgVG4fsLEo/3sAj4Aq6szzn1t1cKlj5fj8mCwodg=="}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mUserTicket Load (0.2ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[36mCACHE UserTicket Load (0.0ms)[0m  [1m[34mSELECT "user_tickets".* FROM "user_tickets" WHERE "user_tickets"."user_id" = ? AND "user_tickets"."paid" = ?[0m  [["user_id", 6], ["paid", "f"]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mTicket Load (0.1ms)[0m  [1m[34mSELECT  "tickets".* FROM "tickets" WHERE "tickets"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mUserTicket Update (0.3ms)[0m  [1m[33mUPDATE "user_tickets" SET "paid" = ?, "updated_at" = ? WHERE "user_tickets"."id" = ?[0m  [["paid", "t"], ["updated_at", "2019-05-24 03:29:54.771699"], ["id", 31]]
+  [1m[35m (197.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering cart/pay.html.erb within layouts/application
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered cart/pay.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 258ms (Views: 48.5ms | ActiveRecord: 199.1ms)
+
+

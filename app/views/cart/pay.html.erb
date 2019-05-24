@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Successfully paid</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Event</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @paid_tickets.each do |user_ticket| %>
+      <tr>
+        <td><%= user_ticket.ticket.event.name %></td>
+        <td><%= user_ticket.ticket.price %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <p>Total: <%= @total %></p>
+</div>
