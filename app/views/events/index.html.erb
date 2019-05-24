@@ -13,16 +13,22 @@
   <tbody>
 
   <% @events.each do |event| %>
-  <tr>
-    <th scope="row"><%= link_to ("#{event.name}"), event %></th>
-    <td><%= event.place.name %></td>
-    <td><%= event.start_date %></td>
-    <% if can? :manage, Event %>
-      <td><%= link_to 'Edit', edit_event_path(event) %></td>
-      <td><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-    <% end %>
-  </tr>
-    <% end %>
+    <tr>
+      <th scope="row">
+        <% if user_signed_in? %>
+          <%= link_to ("#{event.name}"), event %>
+        <% else %>
+          <%= event.name %>
+        <% end   %>
+      </th>
+      <td><%= event.place.name %></td>
+      <td><%= event.start_date %></td>
+      <% if can? :manage, Event %>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <% end %>
+    </tr>
+  <% end %>
 
 
   </tbody>

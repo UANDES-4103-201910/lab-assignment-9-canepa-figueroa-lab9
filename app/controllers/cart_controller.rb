@@ -15,7 +15,7 @@ class CartController < ApplicationController
         @total += user_ticket.ticket.price
       end
     else
-      flash[:notice] = "You have no tickets in your cart"
+      flash[:notice] = "You have no  tickets in your cart"
       redirect_to events_path
     end
 
