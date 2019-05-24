@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   get '/sign_in' => 'registrations#new', as: :registrations
   post '/sign_in' => 'registrations#create', as: :sign_in
   post 'cart/add_item', to: 'user_ticket#create', as: :add_item_to_cart
-
+  post 'cart/pay', to: 'cart#pay', as: :pay_tickets
 end
