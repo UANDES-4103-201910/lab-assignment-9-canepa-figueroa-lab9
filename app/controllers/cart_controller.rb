@@ -1,19 +1,23 @@
 class CartController < ApplicationController
+  before_action :authenticate_user!
   def index
     @user_tickets = UserTicket.where(user_id: current_user.id, paid: false)
   end
 
   def pay
-    @user_tickets = UserTicket.where(user_id: current_user.id, paid: false)
-    if @user_tickets
-      @user_tickets.each do |ticket|
-        ticket.update(paid:true)
+    @total = 0
+    @paid_tickets = UserTicket.where(user_id: current_user.id, paid: false)
+    @paid_tickets_l = UserTicket.where(user_id: current_user.id, paid: false).length
+    @tickets_info = Array.new
+    if @paid_tickets_l > 0
+      @paid_tickets.each do |user_ticket|
+        user_ticket.update(paid: true)
+        @total += user_ticket.ticket.price
       end
-      flash[:notice] = "Successfully paid"
     else
-      flash[:notice] = "You have not tickets in your cart"
+      flash[:notice] = "You have no tickets in your cart"
+      redirect_to events_path
     end
-    redirect_to events_path
 
   end
 
