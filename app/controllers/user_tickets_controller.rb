@@ -1,6 +1,6 @@
 class UserTicketsController < ApplicationController
   before_action :set_user_ticket, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
   # GET /user_tickets
   # GET /user_tickets.json
   def index
@@ -25,6 +25,7 @@ class UserTicketsController < ApplicationController
   # POST /user_tickets.json
   def create
     @user_ticket = UserTicket.new(user_ticket_params)
+    @user_ticket.user_id = current_user.id
     @user_ticket.time = Time.now
     @user_ticket.paid = false
     respond_to do |format|
@@ -71,6 +72,8 @@ class UserTicketsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_ticket_params
       # params.fetch(:user_ticket, {})
-      params.permit(:user_id, :ticket_id)
+      # params.require(:user_ticket).permit(:user_id, :ticket_id)
+      # params.permit(:user_id, :ticket_id)
+      params.require(:user_ticket).permit(:ticket_id)
     end
 end
