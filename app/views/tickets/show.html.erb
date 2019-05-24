@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>
+<br>
+<br>
+
+<%#= link_to "Add To Cart", add_item_to_cart_path %>
+
+<h1><%=@ticket.event.name %></h1>
+<h4><%=@ticket.event.place.name %></h4>
+<h4>Price: $<%=@ticket.price %></h4>
+
+<form class="nifty_form" id="new_article" action="/user_tickets#create" accept-charset="UTF-8" method="post">
+  <input name="user_id" type="hidden" value=<%=current_user.id %> />
+  <input name="ticket_id" type="hidden" value=<%=@ticket.id %> />
+  <input type="submit" name="commit" value="Add to cart" data-disable-with="Create" />
+</form>
+
+
+<br>
+<!--<%#= link_to 'Edit', edit_ticket_path(@ticket) %> |-->
+<%= link_to 'Back', url_for(:back)  %>
